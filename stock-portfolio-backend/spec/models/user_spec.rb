@@ -10,5 +10,7 @@ RSpec.describe User, type: :model do
     it 'is created with a default balance' do 
       expect(User.new.balance).to eq(5000.00)
     end 
+
+    it { should have_many(:stocks) }
   end 
 end
