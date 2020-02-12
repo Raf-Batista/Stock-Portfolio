@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* large phones and small tablets */
+/* 500px / 16px = 31.25em */
+@media screen and (min-width: 31.25em) {
+  #login {
+    width: 25% ;
+  }
+  .btn {
+    margin-left: 14em;
+  }
+ 
+}
+
+/* tablets and small monitors */
+/* 800px / 16px = 50em */
+@media screen and (min-width: 50em) {
+
+}
+
+/* laptops and desktops */
+/* 1200px / 16px = 75em */
+@media screen and (min-width: 75em) {
+
+  .btn {
+    margin-left: 10em;
+  }
+}
