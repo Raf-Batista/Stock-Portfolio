@@ -17,6 +17,14 @@ RSpec.describe User, type: :model do
         expect(!!User.last).to eq(true)
       end
 
+      it 'is not created if email exists' do
+        User.create(name: 'test', email: 'test@email.com', password: 'test123')
+
+        not_created = User.create(name: 'test', email: 'test@email.com', password: 'test123')
+
+        expect(not_created.valid?).to eq(false)
+      end
+
       it 'is not created with an invalid email' do
         User.create(name: 'test', email: 'test', password: 'test123')
 
