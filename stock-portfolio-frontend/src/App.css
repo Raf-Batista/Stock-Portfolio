@@ -42,7 +42,8 @@
 /* 500px / 16px = 31.25em */
 @media screen and (min-width: 31.25em) {
   #login {
-    width: 25% ;
+    width: 25%;
+    min-height: 25em;
   }
   .btn {
     margin-left: 14em;

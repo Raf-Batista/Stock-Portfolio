@@ -36,7 +36,7 @@ import React, { Component } from 'react'
 
     render() {
         return (
-            <div className="container  p-3" id="login">
+            <div className="container  p-3 border border-dark mt-5" id="login">
                 <h3 className="text-center">Register</h3>
                 <form>
                      <div className="form-group">
