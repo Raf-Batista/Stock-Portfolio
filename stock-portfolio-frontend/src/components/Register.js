@@ -6,6 +6,10 @@ import React, { Component } from 'react'
          this.state = {name: '', email: '', password: ''}
      }
 
+     componentDidMount() {
+         if(localStorage.userData) this.props.history.push('/portfolio')
+     }
+
      handleOnChange = event => {
         this.setState({
           [event.target.name]: event.target.value,
@@ -23,8 +27,8 @@ import React, { Component } from 'react'
                 }
             });
             const data = await fetchResponse.json();
-            if(data.error) alert(data.error.join(', '));
-            this.setState({name: '', email: '', password: ''})
+            if(data.token) localStorage.setItem('userData', JSON.stringify(data))
+        //   if(data.error) alert(data.error.join(', '));
         } catch(error) {
             console.log(error)
         }
@@ -33,7 +37,8 @@ import React, { Component } from 'react'
       handleOnClick = event => {
         event.preventDefault()
         this.createUser();
-        
+        this.setState({name: '', email: '', password: ''})
+        this.props.history.push('/portfolio');
       }
 
     render() {
@@ -43,17 +48,17 @@ import React, { Component } from 'react'
                 <form>
                      <div className="form-group">
                         <label htmlFor="name">Name</label>
-                        <input type="name" className="form-control"  name="name" onChange={this.handleOnChange} />
+                        <input type="name" className="form-control"  name="name" onChange={this.handleOnChange} value = {this.state.name}/>
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="email">Email address</label>
-                        <input type="email" className="form-control"  name="email" onChange={this.handleOnChange} />
+                        <input type="email" className="form-control"  name="email" onChange={this.handleOnChange} value={this.state.email}/>
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="password">Password</label>
-                        <input type="password" className="form-control" name="password" onChange={this.handleOnChange}/>
+                        <input type="password" className="form-control" name="password" onChange={this.handleOnChange} value={this.state.password}/>
                     </div>
                     
                     <button type="submit" className="btn btn-primary mb-3" onClick={this.handleOnClick}>Submit</button>
