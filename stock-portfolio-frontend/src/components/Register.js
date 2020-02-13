@@ -54,8 +54,9 @@ import React, { Component } from 'react'
                         <input type="password" className="form-control" name="password" onChange={this.handleOnChange}/>
                     </div>
                     
-                    <button type="submit" className="btn btn-primary" onClick={this.handleOnClick}>Submit</button>
+                    <button type="submit" className="btn btn-primary mb-3" onClick={this.handleOnClick}>Submit</button>
                 </form>
+                <span>Already have an account? <a href="#">Login</a> </span>
             </div>
         )
     }
