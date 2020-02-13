@@ -12,7 +12,7 @@ import React, { Component } from 'react'
 
      handleOnChange = event => {
         this.setState({
-          [event.target.name]: event.target.value,
+          [event.target.name]: event.target.value
         });
       }
       

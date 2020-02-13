@@ -11,6 +11,6 @@ export const Navbar = () => {
     </div>
   
     return (
-       localStorage.token ? nav : null // Render navbar only if user is logged in
+       localStorage.userData ? nav : null // Render navbar only if user is logged in
     )
 }
