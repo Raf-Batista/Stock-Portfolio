@@ -23,7 +23,8 @@ import React, { Component } from 'react'
                 }
             });
             const data = await fetchResponse.json();
-            if(data.error) alert(data.error.join(', '))
+            if(data.error) alert(data.error.join(', '));
+            this.setState({name: '', email: '', password: ''})
         } catch(error) {
             console.log(error)
         }
@@ -32,6 +33,7 @@ import React, { Component } from 'react'
       handleOnClick = event => {
         event.preventDefault()
         this.createUser();
+        
       }
 
     render() {

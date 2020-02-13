@@ -14,7 +14,7 @@ function App() {
       <Home /> 
       <Navbar />
       <Switch>
-        <Route exact path='/register' component={Register} />
+        <Route exact path='/' component={Register} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/portfolio' component={Portfolio} />
         <Route exact path='/transactions' component={Transactions} />

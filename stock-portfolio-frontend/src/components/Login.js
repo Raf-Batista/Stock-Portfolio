@@ -23,7 +23,7 @@ import React, { Component } from 'react'
                     
                     <button type="submit" className="btn btn-primary mb-3" onClick={this.handleOnClick}>Login</button>
                 </form>
-                <span>Don't have an account? <a href="/register">Register</a> </span>
+                <span>Don't have an account? <a href="/">Register</a> </span>
             </div>
         )
     }
