@@ -56,7 +56,7 @@ import React, { Component } from 'react'
                     
                     <button type="submit" className="btn btn-primary mb-3" onClick={this.handleOnClick}>Submit</button>
                 </form>
-                <span>Already have an account? <a href="#">Login</a> </span>
+                <span>Already have an account? <a href="/login">Login</a> </span>
             </div>
         )
     }
