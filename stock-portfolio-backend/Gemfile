@@ -31,9 +31,10 @@ gem 'jwt'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'pry'
   gem 'rspec-rails'
-    gem 'shoulda-matchers'
+  gem 'shoulda-matchers'
 end
 
 group :development do
