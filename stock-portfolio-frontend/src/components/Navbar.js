@@ -5,8 +5,8 @@ export const Navbar = () => {
     const nav = 
     <div className="container">
         <div className="float-right">
-        <NavLink className="mx-2" exact to='/portfolio'>Portfolio</NavLink>
-        <NavLink exact to='/transactions'>Transactions</NavLink>
+            <NavLink className="mx-2" exact to='/portfolio'>Portfolio</NavLink>
+            <NavLink exact to='/transactions'>Transactions</NavLink>
         </div>      
     </div>
   
