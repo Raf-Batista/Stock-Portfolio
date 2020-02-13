@@ -11,25 +11,22 @@ import React, { Component } from 'react'
           [event.target.name]: event.target.value,
         });
       }
-
+      
       createUser = async () => {
         const URL = "http://localhost:3000/users"; 
-        const settings = {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            user: this.state
-        };
         try {
-            const fetchResponse = await fetch(URL, settings);
+            const fetchResponse = await fetch(URL, {
+                method: 'POST',
+                body: JSON.stringify({user: this.state}),
+                headers:{
+                  'Content-Type': 'application/json'
+                }
+            });
             const data = await fetchResponse.json();
-            console.log(data)
+            if(data.error) alert(data.error.join(', '))
         } catch(error) {
             console.log(error)
         }
-   
       }
 
       handleOnClick = event => {
