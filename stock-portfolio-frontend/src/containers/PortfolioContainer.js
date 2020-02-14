@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Portfolio from '../components/Portfolio';
+import StocksForm from '../components/StocksForm';
 
 class PortfolioContainer extends Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class PortfolioContainer extends Component {
                         <Portfolio symbol={stock.symbol} shares={stock.shares} value={stock.value}/>
                     ))}
                     </div>
-                    <div className="col">asdfasdf</div>
+                    <div className="col"><StocksForm cash={5000}/></div>
                 </div>
               
             </div>

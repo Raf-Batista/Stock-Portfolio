@@ -7,7 +7,7 @@ class Portfolio extends Component {
                 <div>
                     {this.props.symbol} - {this.props.shares} Shares ${this.props.value}
                 </div>
-                <hr className="w-25"></hr>
+                <hr></hr>
             </div>
         )
     }
