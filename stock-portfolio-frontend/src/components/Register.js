@@ -27,7 +27,9 @@ import React, { Component } from 'react'
                 }
             });
             const data = await fetchResponse.json();
-            if(data.token) localStorage.setItem('userData', JSON.stringify(data))
+            if(data.token) localStorage.setItem('userData', JSON.stringify(data));
+            this.setState({name: '', email: '', password: ''})
+            this.props.history.push('/portfolio');
         //   if(data.error) alert(data.error.join(', '));
         } catch(error) {
             console.log(error)
@@ -37,8 +39,6 @@ import React, { Component } from 'react'
       handleOnClick = event => {
         event.preventDefault()
         this.createUser();
-        this.setState({name: '', email: '', password: ''})
-        this.props.history.push('/portfolio');
       }
 
     render() {

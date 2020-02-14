@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Home } from './components/Home';
-import { Navbar } from './components/Navbar';
+import Navbar from './components/Navbar';
 import { Route, Switch } from 'react-router-dom';
 import Register from './components/Register';
 import Login from './components/Login';
@@ -12,7 +12,7 @@ function App() {
   return (
     <div >
       <Home /> 
-      <Navbar />
+      <Navbar localStorage={localStorage}/>
       <Switch>
         <Route exact path='/' component={Register} />
         <Route exact path='/login' component={Login} />
