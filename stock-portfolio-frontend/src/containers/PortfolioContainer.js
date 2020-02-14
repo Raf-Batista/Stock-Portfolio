@@ -5,7 +5,7 @@ import StocksForm from '../components/StocksForm';
 class PortfolioContainer extends Component {
     constructor(props) {
         super(props);
-        this.state = {stocks: [], balance: 5000};
+        this.state = {stocks: [], balance: 0};
     }
 
     fetchStocks = async () => {
@@ -14,8 +14,15 @@ class PortfolioContainer extends Component {
         try {
             const fetchResponse = await fetch(URL)
             const data = await fetchResponse.json();
-            // add returned stock to state array 
-            // calculate price of all the stocks and add it to balance
+            
+            let balance = data
+                .map((stock) =>  stock.value)
+                .reduce((total, val) => total + val)
+            
+            this.setState({
+                stocks: data,
+                balance: balance
+            })
         } catch (error) {
             console.log(error)
         }
