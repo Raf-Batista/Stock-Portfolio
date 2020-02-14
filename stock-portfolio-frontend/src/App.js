@@ -5,8 +5,8 @@ import Navbar from './components/Navbar';
 import { Route, Switch } from 'react-router-dom';
 import Register from './components/Register';
 import Login from './components/Login';
-import Portfolio from './components/Portfolio';
-import Transactions from './components/Transactions';
+import PortfolioContainer from './containers/PortfolioContainer';
+import TransactionsContainer from './containers/TransactionsContainer';
 
 function App() {
   return (
@@ -16,8 +16,8 @@ function App() {
       <Switch>
         <Route exact path='/' component={Register} />
         <Route exact path='/login' component={Login} />
-        <Route exact path='/portfolio' component={Portfolio} />
-        <Route exact path='/transactions' component={Transactions} />
+        <Route exact path='/portfolio' component={PortfolioContainer} />
+        <Route exact path='/transactions' component={TransactionsContainer} />
       </Switch>
     </div>
   );
