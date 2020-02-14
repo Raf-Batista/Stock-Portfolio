@@ -25,6 +25,12 @@ import React, { Component } from 'react'
         }
     }
 
+    handleOnChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
     handleOnClick = (event) => {
         event.preventDefault()
         this.login();
