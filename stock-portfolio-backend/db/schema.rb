@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_02_12_113638) do
     t.integer "shares"
     t.boolean "bought", default: true
     t.decimal "value", precision: 8, scale: 2
+    t.string "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["stock_id"], name: "index_transactions_on_stock_id"
