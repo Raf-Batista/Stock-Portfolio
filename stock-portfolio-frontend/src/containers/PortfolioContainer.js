@@ -16,7 +16,7 @@ class PortfolioContainer extends Component {
             const data = await fetchResponse.json();
             
             let balance = data
-                .map((stock) =>  stock.value)
+                .map((stock) =>  parseFloat(stock.value))
                 .reduce((total, val) => total + val)
             
             this.setState({
