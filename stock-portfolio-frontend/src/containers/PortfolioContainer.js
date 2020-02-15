@@ -18,7 +18,7 @@ class PortfolioContainer extends Component {
             
             let total = data.stocks
                 .map((stock) =>  parseFloat(stock.value))
-                .reduce((total, val) => total + val);
+                .reduce((total, val) => total + val);     
             
             this.setState({
                 stocks: data.stocks,

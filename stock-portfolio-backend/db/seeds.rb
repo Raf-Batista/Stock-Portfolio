@@ -8,10 +8,10 @@
 
 user = User.create(name: 'test', email: 'test@email.com', password: 'test123')
 
-user.stocks.create(symbol: 't1', shares: 5, value: 150.25)
+user.stocks.create(symbol: 'a', shares: 5, value: 150.25)
 
 Transaction.create(user_id: user.id, stock_id: user.stocks.last.id, shares: user.stocks.last.shares, value: user.stocks.last.value, symbol: user.stocks.last.symbol)
 
-user.stocks.create(symbol: 't2', shares: 10, value: 250.00)
+user.stocks.create(symbol: 'aapl', shares: 10, value: 250.00)
 
 Transaction.create(user_id: user.id, stock_id: user.stocks.last.id, shares: user.stocks.last.shares, value: user.stocks.last.value, symbol: user.stocks.last.symbol)

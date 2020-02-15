@@ -7,7 +7,6 @@ class StocksController < ApplicationController
     end 
 
     def create 
-      #  binding.pry
         user = User.find_by(id: params[:user_id].to_i)
         user_stock = Stock.find_or_create_by(symbol: params[:stock][:symbol])
         
@@ -26,6 +25,6 @@ class StocksController < ApplicationController
             Transaction.create(user_id: user.id, stock_id: user.stocks.last.id, shares: user_stock.shares, symbol: user_stock.symbol, value: user_stock.value)
             render json: {success: "Stock bought"}
         end 
-        
+
     end 
 end
