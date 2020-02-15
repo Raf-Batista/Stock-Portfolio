@@ -13,12 +13,11 @@ class StocksForm extends Component {
     }
 
     fetchStocks = async () => {
-        const URL = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${this.state.ticker}&apikey=${process.env.ALPHA_VANTAGE_API_KEY}`
-        
+        const URL = `https://sandbox.iexapis.com/stable/stock/${this.state.ticker}/quote?token=${process.env.REACT_APP_API_KEY}`
         try {
             const fetchRequest = await fetch(URL)
             const stockData = await fetchRequest.json();
-            if(!stockData["Error Message"])  this.buyStocks(stockData);
+            if(stockData.symbol)  this.buyStocks(stockData);
         } catch (error) {
             console.log(error)
         }
