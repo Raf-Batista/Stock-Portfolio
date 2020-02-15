@@ -11,18 +11,19 @@ class PortfolioContainer extends Component {
     fetchStocks = async () => {
         const id = JSON.parse(localStorage.userData).id
         const URL = `http://localhost:3000/users/${id}/stocks`
+        
         try {
-            const fetchResponse = await fetch(URL)
+            const fetchResponse = await fetch(URL);
             const data = await fetchResponse.json();
             
             let balance = data
                 .map((stock) =>  parseFloat(stock.value))
-                .reduce((total, val) => total + val)
+                .reduce((total, val) => total + val);
             
             this.setState({
                 stocks: data,
                 balance: balance
-            })
+            });
         } catch (error) {
             console.log(error)
         }
