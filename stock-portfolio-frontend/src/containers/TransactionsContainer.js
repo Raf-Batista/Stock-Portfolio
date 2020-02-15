@@ -26,8 +26,8 @@ class TransactionsContainer extends Component {
     }
     render() {
         return (
-            <div>
-                <h2>Transactions</h2>
+            <div className="container mt-5">
+                <h2 className="mb-4">Transactions</h2>
                 {this.state.transactions.map((transaction) => (
                     <Transaction transaction={transaction}/>
                 ))}

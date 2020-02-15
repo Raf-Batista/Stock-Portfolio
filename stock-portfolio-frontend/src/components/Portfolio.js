@@ -4,10 +4,9 @@ class Portfolio extends Component {
     render() {
         return (
             <div className="my-3">
-                <div>
+                <span className="border-bottom p-2">
                     {this.props.symbol} - {this.props.shares} Shares ${this.props.value}
-                </div>
-                <hr></hr>
+                </span>
             </div>
         )
     }
