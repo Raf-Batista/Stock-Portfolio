@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 2020_02_12_113638) do
   create_table "transactions", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "stock_id"
+    t.string "symbol"
     t.integer "shares"
-    t.date "date"
     t.boolean "bought", default: true
     t.decimal "value", precision: 8, scale: 2
     t.datetime "created_at", precision: 6, null: false

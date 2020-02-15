@@ -5,5 +5,6 @@ class Transaction < ApplicationRecord
     validates :shares, presence: true 
     validates :bought, presence: true 
     validates :value, presence: true 
+    validates :symbol, presence: true 
 
 end
