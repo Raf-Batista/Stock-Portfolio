@@ -8,7 +8,7 @@ class PortfolioContainer extends Component {
         this.state = {stocks: [], balance: 0};
     }
 
-    fetchStocks = async () => {
+    fetchUserStocks = async () => {
         const id = JSON.parse(localStorage.userData).id
         const URL = `http://localhost:3000/users/${id}/stocks`
         
@@ -30,7 +30,7 @@ class PortfolioContainer extends Component {
     }
 
     componentDidMount() {
-        this.fetchStocks()
+        this.fetchUserStocks()
     }
 
     render() {
@@ -43,7 +43,7 @@ class PortfolioContainer extends Component {
                         <Portfolio symbol={stock.symbol} shares={stock.shares} value={stock.value}/>
                     ))}
                     </div>
-                    <div className="col"><StocksForm cash={5000}/></div>
+                    <div className="col"><StocksForm cash={5000} fetchUserStocks={this.fetchUserStocks}/></div>
                 </div>
             </div>
         )

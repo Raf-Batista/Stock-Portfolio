@@ -18,16 +18,14 @@ class StocksForm extends Component {
         try {
             const fetchRequest = await fetch(URL)
             const stockData = await fetchRequest.json();
-            this.buyStocks(stockData)
+            if(!stockData["Error Message"])  this.buyStocks(stockData);
         } catch (error) {
             console.log(error)
         }
- 
-
     }
 
     buyStocks = async (stockData) => {
-        const URL = `http://localhost:3000/users/${localStorage.userData.id}/stocks`
+        const URL = `http://localhost:3000/users/${JSON.parse(localStorage.userData).id}/stocks`
         try {
             const fetchRequest = await fetch(URL, {
                 method: 'POST',
@@ -36,6 +34,10 @@ class StocksForm extends Component {
                   'Content-Type': 'application/json'
                 }
             })
+
+            this.setState({ticker: '', qty: 0});
+            this.props.fetchUserStocks(); // Passed from parent, fetch the user's stock and update state to reflect newly bought stock
+
         } catch (error) {
             console.log(error)
         }
