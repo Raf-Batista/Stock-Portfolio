@@ -15,8 +15,16 @@ class StocksController < ApplicationController
 
         user = User.find_by(id: params[:user_id].to_i)
         user_stock = Stock.find_or_create_by(symbol: symbol)
+    
+        if user.balance - value < 0 
+            render json: {error: "Balance not enough for purchase"}
+        else 
+            user.balance -= value 
+            user.save
+        end 
+       
         user_stock.value = value 
-        user_stock.shares = user_stock.shares + shares 
+        user_stock.shares += shares
         user_stock.user = user
 
 
