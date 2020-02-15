@@ -45,7 +45,6 @@ class PortfolioContainer extends Component {
                     </div>
                     <div className="col"><StocksForm cash={5000}/></div>
                 </div>
-              
             </div>
         )
     }

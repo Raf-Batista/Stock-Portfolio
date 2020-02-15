@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import Transaction from '../components/Transaction'
 
 class TransactionsContainer extends Component {
     constructor(props) {
         super(props);
-        this.setState({transactions: []});
+        this.state = {transactions: []};
     }
 
     fetchTransactions = async () => {
@@ -14,7 +15,7 @@ class TransactionsContainer extends Component {
             const fetchResponse = await fetch(URL);
             const data = await fetchResponse.json();
             this.setState({transactions: data})
-            console.log(data)
+            console.log(this.state)
         } catch (error) {
             console.log(error)
         } 
@@ -26,7 +27,10 @@ class TransactionsContainer extends Component {
     render() {
         return (
             <div>
-                TransactionsContainer
+                <h2>Transactions</h2>
+                {this.state.transactions.map((transaction) => (
+                    <Transaction transaction={transaction}/>
+                ))}
             </div>
         )
     }
