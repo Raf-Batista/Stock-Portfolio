@@ -1,6 +1,5 @@
 class Stock < ApplicationRecord
-    has_many :transactions 
-    has_many :users, through: :transactions
+    belongs_to :user
 
     validates :symbol, presence: true
     validates :value, presence: true

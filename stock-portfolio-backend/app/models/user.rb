@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_secure_password 
     has_many :transactions
-    has_many :stocks, through: :transactions
+    has_many :stocks
 
     validates :name, presence: true
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 

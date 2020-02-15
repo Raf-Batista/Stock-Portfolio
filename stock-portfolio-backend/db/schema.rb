@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_02_12_113638) do
   enable_extension "plpgsql"
 
   create_table "stocks", force: :cascade do |t|
+    t.integer "user_id"
     t.string "symbol"
     t.integer "shares"
     t.decimal "value", precision: 8, scale: 2
