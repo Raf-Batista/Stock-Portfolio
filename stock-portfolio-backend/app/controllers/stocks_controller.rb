@@ -1,8 +1,9 @@
 class StocksController < ApplicationController
     def index 
         stocks = User.find_by(id: params[:user_id].to_i).stocks 
+        user = User.find_by(id: params[:user_id].to_i)
         
-        render json: stocks
+        render json: {stocks: stocks, balance: user.balance}
     end 
 
     def create 

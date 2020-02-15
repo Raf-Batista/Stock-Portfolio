@@ -51,7 +51,7 @@ class StocksForm extends Component {
     render() {
         return (
             <div className="container">
-                <h2 className="mt-4 ml-5">Cash - $ {this.props.cash}</h2>
+                <h2 className="mt-4 ml-5">Cash - $ {this.props.balance}</h2>
                 <div class="form-group my-4 ml-5 w-50">
                     <input name="ticker" type="text" class="form-control" placeholder="Ticker" value={this.state.ticker} onChange={this.handleOnChange}/>
                 </div>

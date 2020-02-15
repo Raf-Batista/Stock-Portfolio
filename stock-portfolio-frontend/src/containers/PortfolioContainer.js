@@ -5,7 +5,7 @@ import StocksForm from '../components/StocksForm';
 class PortfolioContainer extends Component {
     constructor(props) {
         super(props);
-        this.state = {stocks: [], balance: 0};
+        this.state = {stocks: [], total: 0, balance: 0};
     }
 
     fetchUserStocks = async () => {
@@ -16,13 +16,14 @@ class PortfolioContainer extends Component {
             const fetchResponse = await fetch(URL);
             const data = await fetchResponse.json();
             
-            let balance = data
+            let total = data.stocks
                 .map((stock) =>  parseFloat(stock.value))
                 .reduce((total, val) => total + val);
             
             this.setState({
-                stocks: data,
-                balance: balance
+                stocks: data.stocks,
+                total: total,
+                balance: data.balance
             });
         } catch (error) {
             console.log(error)
@@ -38,12 +39,12 @@ class PortfolioContainer extends Component {
             <div className="container mt-5">
                 <div className="row">
                     <div className="col">
-                    <h2 className="my-4">Portfolio (${this.state.balance})</h2>
+                    <h2 className="my-4">Portfolio (${this.state.total})</h2>
                     {this.state.stocks.map((stock) => (
                         <Portfolio symbol={stock.symbol} shares={stock.shares} value={stock.value}/>
                     ))}
                     </div>
-                    <div className="col"><StocksForm cash={5000} fetchUserStocks={this.fetchUserStocks}/></div>
+                    <div className="col"><StocksForm balance={parseFloat(this.state.balance)} fetchUserStocks={this.fetchUserStocks}/></div>
                 </div>
             </div>
         )
