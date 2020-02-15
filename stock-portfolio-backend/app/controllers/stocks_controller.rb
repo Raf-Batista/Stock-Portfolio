@@ -4,4 +4,9 @@ class StocksController < ApplicationController
         
         render json: stocks
     end 
+
+    def create 
+        # params[:stock]["Global Quote"]
+        binding.pry
+    end 
 end

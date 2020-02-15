@@ -12,8 +12,38 @@ class StocksForm extends Component {
         })
     }
 
+    fetchStocks = async () => {
+        const URL = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${this.state.ticker}&apikey=${process.env.ALPHA_VANTAGE_API_KEY}`
+        
+        try {
+            const fetchRequest = await fetch(URL)
+            const stockData = await fetchRequest.json();
+            this.buyStocks(stockData)
+        } catch (error) {
+            console.log(error)
+        }
+ 
+
+    }
+
+    buyStocks = async (stockData) => {
+        const URL = `http://localhost:3000/users/${localStorage.userData.id}/stocks`
+        try {
+            const fetchRequest = await fetch(URL, {
+                method: 'POST',
+                body: JSON.stringify({stock: stockData, qty: this.state.qty}),
+                headers:{
+                  'Content-Type': 'application/json'
+                }
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     handleOnClick = (event) => {
         event.preventDefault();
+        this.fetchStocks();
     }
 
     render() {
