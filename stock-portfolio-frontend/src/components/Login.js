@@ -38,12 +38,12 @@ import React, { Component } from 'react'
     
     render() {
         return (
-            <div className="container  p-3 border border-dark mt-5" id="login">
+            <div className="container p-3 border border-dark mt-5 w-25" id="login">
                 <h3 className="text-center">Login</h3>
                 <form>
                     <div className="form-group">
                         <label htmlFor="email">Email address</label>
-                        <input type="email" className="form-control"  name="email" onChange={this.handleOnChange} value={this.state.email}/>
+                        <input type="email" className="form-control"  name="email" on0Change={this.handleOnChange} value={this.state.email}/>
                     </div>
 
                     <div className="form-group">
@@ -51,7 +51,7 @@ import React, { Component } from 'react'
                         <input type="password" className="form-control" name="password" onChange={this.handleOnChange} value={this.state.password}/>
                     </div>
                     
-                    <button type="submit" className="btn btn-primary mb-3" onClick={this.handleOnClick}>Login</button>
+                    <button type="submit" className="btn btn-primary mb-3 login-button" onClick={this.handleOnClick}>Login</button>
                 </form>
                 <span>Don't have an account? <a href="/">Register</a> </span>
             </div>
