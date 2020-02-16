@@ -37,7 +37,7 @@ class PortfolioContainer extends Component {
     render() {
         return (
             <div className="container mt-5">
-                <div className="row">
+                <div className="row ml-5">
                     <div className="col">
                     <h2 className="my-4">Portfolio (${this.state.total})</h2>
                     {this.state.stocks.map((stock) => (

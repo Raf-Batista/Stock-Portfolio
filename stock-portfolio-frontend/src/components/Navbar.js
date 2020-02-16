@@ -11,11 +11,11 @@ import { withRouter } from 'react-router-dom';
 
     render() {
         const nav = 
-        <div className="container">
-            <div className="float-right">
+        <div className="container text-center">
+            <div>
                 <NavLink className="mx-2" exact to='/portfolio'>Portfolio</NavLink>
                 <NavLink className="mx-2" exact to='/transactions'>Transactions</NavLink>
-                <a href='#' onClick={this.handleOnClick}>Logout</a>
+                <a href='#' className="mx-2" onClick={this.handleOnClick}>Logout</a>
             </div>      
         </div>
         return (
