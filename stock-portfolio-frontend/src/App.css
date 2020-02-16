@@ -95,4 +95,16 @@
   .login-button {
     margin-top: 5.4em;
   }
+
+  .iexcloud {
+    margin-left: 32em;
+    margin-top: auto;
+  }
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-left: 32em;
 }
