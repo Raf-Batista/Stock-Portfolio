@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
             token = login(user)
             render json: {name: user.name, email: user.email, id: user.id, token: token}
         else 
-            render json: {error: 'something went wrong'}
+            render json: {error: 'Email or Password is incorrect.'}
         end     
     end
 
