@@ -24,8 +24,7 @@ import 'react-toastify/dist/ReactToastify.css';
                 this.setState({email: '', password: ''});
                 this.props.history.push('/portfolio');
             } else { // If login unsuccessful, set error state with error message from server and use react-tostify to display a toast with error message
-                this.setState({error: data.error});
-                toast.error(this.state.error, {
+                toast.error(data.error, {
                     position: toast.POSITION.TOP_LEFT
                 });
             }

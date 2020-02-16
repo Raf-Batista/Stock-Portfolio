@@ -39,7 +39,12 @@ class StocksForm extends Component {
                   'Content-Type': 'application/json'
                 }
             })
-
+            const data = fetchRequest.json(); 
+            if(data.error) {
+                toast.error(data.error, {
+                    position: toast.POSITION.TOP_LEFT
+                });
+            }
             this.setState({ticker: '', qty: ''});
             this.props.fetchUserStocks(); // Passed from parent, fetch the user's stock and update state to reflect newly bought stock
 
