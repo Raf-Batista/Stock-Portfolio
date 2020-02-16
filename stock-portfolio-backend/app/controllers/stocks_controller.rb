@@ -9,9 +9,9 @@ class StocksController < ApplicationController
     def create 
         user = User.find_by(id: params[:user_id].to_i)
         user_stock = Stock.find_or_create_by(symbol: params[:stock][:symbol])
-      #  binding.pry
+ 
         if (user.balance - params[:stock][:latestPrice] * params[:qty].to_i) < 0 
-            render json: {error: "Balance not enough"}
+            return render json: {error: "Balance not enough"}
         else 
             user.balance -= (params[:stock][:latestPrice] * params[:qty].to_i)
         end  
