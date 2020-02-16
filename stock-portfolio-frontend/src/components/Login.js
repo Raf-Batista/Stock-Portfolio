@@ -51,7 +51,7 @@ import React, { Component } from 'react'
                         <input type="password" className="form-control" name="password" onChange={this.handleOnChange} value={this.state.password}/>
                     </div>
                     
-                    <button type="submit" className="btn btn-primary mb-3 login-button" onClick={this.handleOnClick}>Login</button>
+                    <button type="submit" className="btn btn-primary mb-3 w-25 login-button" onClick={this.handleOnClick}>Login</button>
                 </form>
                 <span>Don't have an account? <a href="/">Register</a> </span>
             </div>
