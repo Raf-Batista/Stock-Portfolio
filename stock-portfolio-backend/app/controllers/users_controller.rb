@@ -5,7 +5,7 @@ class UsersController < ApplicationController
             token = login(user)
             render json: {success: "You have successfully registered", token: token, user: user}
         else 
-            render json: {error: user.errors.full_messages} 
+            render json: {errors: user.errors.full_messages} 
         end 
     end
 

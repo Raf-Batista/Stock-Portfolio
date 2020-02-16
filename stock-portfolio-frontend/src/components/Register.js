@@ -1,16 +1,18 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
  class Register extends Component {
      constructor(props) {
          super(props)
-         this.state = {name: '', email: '', password: ''}
+         this.state = {name: '', email: '', password: '', error: ''}
      }
 
      componentDidMount() {
          if(localStorage.userData) this.props.history.push('/portfolio')
      }
 
-     handleOnChange = event => {
+     handleChange = event => {
         this.setState({
           [event.target.name]: event.target.value
         });
@@ -27,16 +29,25 @@ import React, { Component } from 'react'
                 }
             });
             const data = await fetchResponse.json();
-            if(data.token) localStorage.setItem('userData', JSON.stringify(data));
-            this.setState({name: '', email: '', password: ''})
-            this.props.history.push('/portfolio');
-        //   if(data.error) alert(data.error.join(', '));
+            if(data.token) {
+                localStorage.setItem('userData', JSON.stringify(data));
+                this.setState({name: '', email: '', password: ''})
+                this.props.history.push('/portfolio');
+            } else {
+                this.setState({
+                    error: data.errors.join(' ')
+                });
+
+                toast.error(this.state.error, {
+                    position: toast.POSITION.TOP_LEFT
+                });
+            }
         } catch(error) {
             console.log(error)
         }
       }
 
-      handleOnClick = event => {
+      handleSubmit = event => {
         event.preventDefault()
         this.createUser();
       }
@@ -45,25 +56,26 @@ import React, { Component } from 'react'
         return (
             <div className="container p-3 border border-dark mt-5" id="login">
                 <h3 className="text-center">Register</h3>
-                <form>
+                <form onSubmit={this.handeSubmit}>
                      <div className="form-group">
                         <label htmlFor="name">Name</label>
-                        <input type="name" className="form-control"  name="name" onChange={this.handleOnChange} value = {this.state.name}/>
+                        <input type="name" className="form-control"  name="name" onChange={this.handleChange} value = {this.state.name} required/>
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="email">Email address</label>
-                        <input type="email" className="form-control"  name="email" onChange={this.handleOnChange} value={this.state.email}/>
+                        <input type="email" className="form-control"  name="email" onChange={this.handleChange} value={this.state.email} required/>
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="password">Password</label>
-                        <input type="password" className="form-control" name="password" onChange={this.handleOnChange} value={this.state.password}/>
+                        <input type="password" className="form-control" name="password" onChange={this.handleChange} value={this.state.password} required/>
                     </div>
                     
-                    <button type="submit" className="btn btn-primary mb-3" onClick={this.handleOnClick}>Submit</button>
+                    <button type="submit" className="btn btn-primary mb-3">Submit</button>
                 </form>
                 <span>Already have an account? <a href="/login">Login</a> </span>
+                <ToastContainer />
             </div>
         )
     }
