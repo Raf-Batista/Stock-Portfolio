@@ -43,7 +43,7 @@ import React, { Component } from 'react'
                 <form>
                     <div className="form-group">
                         <label htmlFor="email">Email address</label>
-                        <input type="email" className="form-control"  name="email" on0Change={this.handleOnChange} value={this.state.email}/>
+                        <input type="email" className="form-control"  name="email" onChange={this.handleOnChange} value={this.state.email}/>
                     </div>
 
                     <div className="form-group">
