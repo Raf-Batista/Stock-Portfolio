@@ -31,7 +31,7 @@ import React, { Component } from 'react'
         })
     }
 
-    handleOnClick = (event) => {
+    handleOnSubmit = (event) => {
         event.preventDefault()
         this.login();
     }
@@ -40,18 +40,18 @@ import React, { Component } from 'react'
         return (
             <div className="container p-3 border border-dark mt-5" id="login">
                 <h3 className="text-center">Login</h3>
-                <form>
+                <form onSubmit={this.handleOnSubmit}>
                     <div className="form-group">
                         <label htmlFor="email">Email address</label>
-                        <input type="email" className="form-control"  name="email" onChange={this.handleOnChange} value={this.state.email}/>
+                        <input type="email"  className="form-control" name="email" onChange={this.handleOnChange} value={this.state.email} required/>
                     </div>
 
                     <div className="form-group">
                         <label htmlFor="password">Password</label>
-                        <input type="password" className="form-control" name="password" onChange={this.handleOnChange} value={this.state.password}/>
+                        <input type="password" className="form-control" name="password" onChange={this.handleOnChange} value={this.state.password} required/>
                     </div>
                     
-                    <button type="submit" className="btn btn-primary mb-3 login-button" onClick={this.handleOnClick}>Login</button>
+                    <button type="submit" className="btn btn-primary mb-3 login-button" >Login</button>
                 </form>
                 <span>Don't have an account? <a href="/">Register</a> </span>
             </div>
