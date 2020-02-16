@@ -12,7 +12,7 @@ function App() {
   return (
     <div >
       <Home /> 
-      <Navbar localStorage={localStorage}/>
+     
       <Switch>
         <Route exact path='/' component={Register} />
         <Route exact path='/login' component={Login} />
