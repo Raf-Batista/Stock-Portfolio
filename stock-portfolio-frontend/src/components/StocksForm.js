@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class StocksForm extends Component {
     constructor(props) {
@@ -17,9 +19,13 @@ class StocksForm extends Component {
         try {
             const fetchRequest = await fetch(URL)
             const stockData = await fetchRequest.json();
-            if(stockData.symbol)  this.buyStocks(stockData);
+            if(stockData.symbol) this.buyStocks(stockData);
+
         } catch (error) {
             console.log(error)
+            toast.error("Invalid Symbol", {
+                position: toast.POSITION.TOP_LEFT
+            });
         }
     }
 
@@ -53,17 +59,17 @@ class StocksForm extends Component {
                 <h2 className="mt-4 ml-5">Cash - $ {this.props.balance}</h2>
                 <form onSubmit={this.handleSubmit}>
                     
-                    <div class="form-group my-4 ml-5 w-50">
-                        <input name="ticker" type="text" class="form-control" placeholder="Ticker" value={this.state.ticker} onChange={this.handleChange} required/>
+                    <div className="form-group my-4 ml-5 w-50">
+                        <input name="ticker" type="text" className="form-control" placeholder="Ticker" value={this.state.ticker} onChange={this.handleChange} required/>
                     </div>
                     
-                    <div class="form-group ml-5 w-50">
-                        <input name="qty" type="number" class="form-control" placeholder="Qty" value={this.state.qty} onChange={this.handleChange} required/>
+                    <div className="form-group ml-5 w-50">
+                        <input name="qty" type="number" className="form-control" placeholder="Qty" value={this.state.qty} onChange={this.handleChange} required/>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary">Buy</button> 
+                    <button type="submit" className="btn btn-primary">Buy</button> 
                 </form>
-                
+                <ToastContainer />
             </div>
         )
     }
