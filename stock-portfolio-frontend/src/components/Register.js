@@ -8,10 +8,6 @@ import 'react-toastify/dist/ReactToastify.css';
          this.state = {name: '', email: '', password: '', error: ''}
      }
 
-     componentDidMount() {
-         if(localStorage.userData) this.props.history.push('/portfolio')
-     }
-
      handleChange = event => {
         this.setState({
           [event.target.name]: event.target.value
@@ -56,7 +52,7 @@ import 'react-toastify/dist/ReactToastify.css';
         return (
             <div className="container p-3 border border-dark mt-5" id="login">
                 <h3 className="text-center">Register</h3>
-                <form onSubmit={this.handeSubmit}>
+                <form onSubmit={this.handleSubmit}>
                      <div className="form-group">
                         <label htmlFor="name">Name</label>
                         <input type="name" className="form-control"  name="name" onChange={this.handleChange} value = {this.state.name} required/>
