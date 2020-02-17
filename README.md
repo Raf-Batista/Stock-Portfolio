@@ -2,7 +2,7 @@
 
 Submitted by: **Rafael Batista**
 
-Time spent: **45** hours spent in total
+Time spent: **50** hours spent in total
 
 ## Live Demo 
 https://stock-portfolio-client.herokuapp.com/
