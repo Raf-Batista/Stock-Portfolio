@@ -7,6 +7,10 @@ class StocksController < ApplicationController
     end 
 
     def create 
+        if params[:qty] =~ /\A\d+\.\d+\z/ 
+            return render json: {error: 'Please use whole numbers for QTY'}
+        end 
+
         user = User.find_by(id: params[:user_id].to_i)
         user_stock = Stock.find_or_create_by(symbol: params[:stock][:symbol])
  

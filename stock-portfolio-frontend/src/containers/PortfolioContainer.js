@@ -9,8 +9,8 @@ class PortfolioContainer extends Component {
     }
 
     fetchUserStocks = async () => {
-        const id = JSON.parse(localStorage.userData).id
-        const URL = `http://localhost:3000/users/${id}/stocks`
+        const id = JSON.parse(localStorage.userData).id;
+        const URL = `http://localhost:3000/users/${id}/stocks`;
         
         try {
             const fetchResponse = await fetch(URL);
@@ -31,7 +31,7 @@ class PortfolioContainer extends Component {
     }
 
     componentDidMount() {
-        this.fetchUserStocks()
+        this.fetchUserStocks();
     }
 
     render() {

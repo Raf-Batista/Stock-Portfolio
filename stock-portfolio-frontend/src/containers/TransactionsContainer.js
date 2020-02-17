@@ -15,7 +15,6 @@ class TransactionsContainer extends Component {
             const fetchResponse = await fetch(URL);
             const data = await fetchResponse.json();
             this.setState({transactions: data})
-            console.log(this.state)
         } catch (error) {
             console.log(error)
         } 
