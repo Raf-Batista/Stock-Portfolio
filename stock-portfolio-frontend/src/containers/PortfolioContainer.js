@@ -15,10 +15,9 @@ class PortfolioContainer extends Component {
         try {
             const fetchResponse = await fetch(URL);
             const data = await fetchResponse.json();
-            
-            let total = data.stocks
+            let total = data.stocks // total of all stocks and their values to two decimal places
                 .map((stock) =>  parseFloat(stock.value) * stock.shares)
-                .reduce((total, val) => total + val);     
+                .reduce((total, val) => total + val).toFixed(2);     
             
             this.setState({
                 stocks: data.stocks,
@@ -46,7 +45,7 @@ class PortfolioContainer extends Component {
                         <Portfolio symbol={stock.symbol} shares={stock.shares} value={stock.value}/>
                     ))}
                     </div>
-                    <div className="col"><StocksForm balance={parseFloat(this.state.balance)} fetchUserStocks={this.fetchUserStocks}/></div>
+                    <div className="col"><StocksForm balance={parseFloat(this.state.balance).toFixed(2)} fetchUserStocks={this.fetchUserStocks}/></div>
                 </div>
             </div>
         )
