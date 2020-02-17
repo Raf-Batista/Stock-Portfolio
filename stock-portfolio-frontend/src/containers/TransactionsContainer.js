@@ -28,7 +28,7 @@ class TransactionsContainer extends Component {
             <div className="container mt-5">
                 <h2 className="mb-4">Transactions</h2>
                 {this.state.transactions.map((transaction) => (
-                    <Transaction transaction={transaction}/>
+                    <Transaction transaction={transaction} key={transaction.id}/>
                 ))}
             </div>
         )

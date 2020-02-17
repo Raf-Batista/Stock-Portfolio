@@ -42,7 +42,7 @@ class PortfolioContainer extends Component {
                     <div className="col">
                     <h2 className="my-4">Portfolio (${this.state.total})</h2>
                     {this.state.stocks.map((stock) => (
-                        <Portfolio symbol={stock.symbol} shares={stock.shares} value={stock.value}/>
+                        <Portfolio symbol={stock.symbol} shares={stock.shares} value={stock.value} key={stock.id}/>
                     ))}
                     </div>
                     <div className="col"><StocksForm balance={parseFloat(this.state.balance).toFixed(2)} fetchUserStocks={this.fetchUserStocks}/></div>
