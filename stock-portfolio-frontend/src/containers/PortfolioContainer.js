@@ -10,7 +10,7 @@ class PortfolioContainer extends Component {
 
     fetchUserStocks = async () => {
         const id = JSON.parse(localStorage.userData).id;
-        const URL = `http://localhost:3000/users/${id}/stocks`;
+        const URL = `${process.env.REACT_APP_URL}/users/${id}/stocks`;
         
         try {
             const fetchResponse = await fetch(URL);

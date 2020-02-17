@@ -30,7 +30,7 @@ class StocksForm extends Component {
     }
 
     buyStocks = async (stockData) => {
-        const URL = `http://localhost:3000/users/${JSON.parse(localStorage.userData).id}/stocks`
+        const URL = `${process.env.REACT_APP_URL}/users/${JSON.parse(localStorage.userData).id}/stocks`
         try {
             const fetchRequest = await fetch(URL, {
                 method: 'POST',

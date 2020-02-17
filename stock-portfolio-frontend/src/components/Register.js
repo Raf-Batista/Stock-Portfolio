@@ -19,7 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
       }
       
       createUser = async () => {
-        const URL = "http://localhost:3000/users"; 
+        const URL = `${process.env.REACT_APP_URL}/users`; 
         try {
             const fetchResponse = await fetch(URL, {
                 method: 'POST',

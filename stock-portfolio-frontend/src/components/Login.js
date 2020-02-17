@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
     }
 
     login = async () => {
-        const URL = "http://localhost:3000/login"; 
+        const URL = `${process.env.REACT_APP_URL}/login`; 
         try {
             const fetchResponse = await fetch(URL, {
                 method: 'POST',
