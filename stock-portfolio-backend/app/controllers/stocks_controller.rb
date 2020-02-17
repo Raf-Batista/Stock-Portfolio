@@ -11,11 +11,11 @@ class StocksController < ApplicationController
         end 
 
         user = User.find_by(id: params[:user_id].to_i)
- 
-        if (user.balance - params[:stock][:latestPrice] * params[:qty].to_i) < 0 
+        
+        if (user.balance - params[:stock][:latestPrice].to_i * params[:qty].to_i) < 0 
             return render json: {error: "Balance not enough"}
         else 
-            user.balance -= (params[:stock][:latestPrice] * params[:qty].to_i)
+            user.balance -= (params[:stock][:latestPrice].to_i * params[:qty].to_i)
             user.save
             stock = user.stocks.find_or_create_by(symbol: params[:stock][:symbol])
             stock.shares += params[:qty].to_i
