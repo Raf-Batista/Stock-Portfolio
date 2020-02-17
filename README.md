@@ -4,6 +4,9 @@ Submitted by: **Rafael Batista**
 
 Time spent: **45** hours spent in total
 
+## Live Demo 
+https://stock-portfolio-client.herokuapp.com/
+
 ## User Stories
 \
 The following **required** functionality is complete:
@@ -15,8 +18,7 @@ The following **required** functionality is complete:
 * [x] User can view their portfolio (a list of all the stocks owned along with their current value).
 * [x] User can see the font color of stock symbols and current prices in portfolio change dynamically to indicate performance.
 
-## Live Demo 
-https://stock-portfolio-client.herokuapp.com/
+
 ## Video Walkthrough 
 \
 Here's a walkthrough of implemented user stories:
