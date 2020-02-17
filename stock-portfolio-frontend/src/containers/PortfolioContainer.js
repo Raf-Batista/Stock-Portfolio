@@ -15,10 +15,12 @@ class PortfolioContainer extends Component {
         try {
             const fetchResponse = await fetch(URL);
             const data = await fetchResponse.json();
-            let total = data.stocks // total of all stocks and their values to two decimal places
+            let total;
+            if(data.stocks.length > 0) {
+                total = data.stocks // total of all stocks and their values to two decimal places
                 .map((stock) =>  parseFloat(stock.value) * stock.shares)
-                .reduce((total, val) => total + val).toFixed(2);     
-            
+                .reduce((total, val) => total + val).toFixed(2);   
+            }
             this.setState({
                 stocks: data.stocks,
                 total: total,
@@ -30,9 +32,7 @@ class PortfolioContainer extends Component {
     }
 
     componentDidMount() {
-        if(!this.props.location.state ) { // Check if state is true, if not then fetch user's stocks from server
-            this.fetchUserStocks();
-        }   
+        this.fetchUserStocks();
     }
 
     render() {

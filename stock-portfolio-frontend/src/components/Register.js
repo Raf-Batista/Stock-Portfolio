@@ -28,10 +28,7 @@ import 'react-toastify/dist/ReactToastify.css';
             if(data.token) {
                 localStorage.setItem('userData', JSON.stringify(data));
                 this.setState({name: '', email: '', password: ''})
-                this.props.history.push({
-                    pathname: '/portfolio', 
-                    state: true // redirect to /portfolio with state set to true
-                });
+                this.props.history.push('/portfolio');
             } else {
                 this.setState({
                     error: data.errors.join(' ')
