@@ -31,8 +31,9 @@ class PortfolioContainer extends Component {
     }
 
     componentDidMount() {
-        this.fetchUserStocks();
-        console.log(this.props)
+        if(!this.props.location.state ) { // Check if state is true, if not then fetch user's stocks from server
+            this.fetchUserStocks();
+        }   
     }
 
     render() {

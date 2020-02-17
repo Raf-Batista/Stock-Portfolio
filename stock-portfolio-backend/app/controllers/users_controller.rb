@@ -3,7 +3,7 @@ class UsersController < ApplicationController
         user = User.new(user_params)
         if user.save 
             token = login(user)
-            render json: {success: "You have successfully registered", token: token, user: user}
+            render json: {name: user.name, email: user.email, id: user.id, token: token}
         else 
             render json: {errors: user.errors.full_messages} 
         end 
