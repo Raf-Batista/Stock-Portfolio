@@ -20,13 +20,11 @@ The following **required** functionality is complete:
 
 
 ## Video Walkthrough 
-\
+
 Here's a walkthrough of implemented user stories:
-\
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />\
-\
-GIF created with [LiceCap](http://www.cockos.com/licecap/).\
-\
+
+https://youtu.be/pdNh0YWI1LQ
+
 ## License
 \
     Copyright [2020] [Rafael Batista]\
