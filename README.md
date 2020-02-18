@@ -23,7 +23,7 @@ The following **required** functionality is complete:
 
 Here's a walkthrough of implemented user stories:
 
-[![Here's a walkthrough of implemented user stories:](https://img.youtube.com/vi/pdNh0YWI1LQ/maxresdefault.jpg)](https://youtu.be/pdNh0YWI1LQA)
+[![Here's a walkthrough of implemented user stories:](https://img.youtube.com/vi/pdNh0YWI1LQ/hqdefault.jpg)](https://youtu.be/pdNh0YWI1LQA)
 
 ## License
 \
