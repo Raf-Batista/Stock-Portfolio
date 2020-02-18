@@ -52,7 +52,7 @@ import 'react-toastify/dist/ReactToastify.css';
         return (
             <div className="container p-3 border border-dark mt-5" id="login">
                 <h3 className="text-center">Register</h3>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} data-test="component-register-form">
                      <div className="form-group">
                         <label htmlFor="name">Name</label>
                         <input type="name" className="form-control"  name="name" onChange={this.handleChange} value = {this.state.name} required/>
@@ -68,7 +68,7 @@ import 'react-toastify/dist/ReactToastify.css';
                         <input type="password" className="form-control" name="password" onChange={this.handleChange} value={this.state.password} required/>
                     </div>
                     
-                    <button type="submit" className="btn btn-primary mb-3">Submit</button>
+                    <button type="submit" className="btn btn-primary mb-3" data-test="component-register-button">Submit</button>
                 </form>
                 <span>Already have an account? <a href="/login">Login</a> </span>
                 <ToastContainer />

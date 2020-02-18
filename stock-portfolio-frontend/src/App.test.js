@@ -1,9 +1,33 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import Enzyme, { shallow } from 'enzyme';
+import EnzymeAdapter from 'enzyme-adapter-react-16';
 import App from './App';
+import Register from './components/Register';
+import Login from './components/Login';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+Enzyme.configure({ adapter: new EnzymeAdapter() });
+
+test('renders register button', () => {
+  const wrapper = shallow(<Register />); 
+  const appComponent = wrapper.find("[data-test='component-register-button']");
+  expect(appComponent.length).toBe(1);
 });
+
+test('renders login button', () => {
+  const wrapper = shallow(<Login />); 
+  const appComponent = wrapper.find("[data-test='component-login-button']");
+  expect(appComponent.length).toBe(1)
+});
+
+test('renders register form', () => {
+  const wrapper = shallow(<Register />); 
+  const appComponent = wrapper.find("[data-test='component-register-form']");
+  expect(appComponent.length).toBe(1);
+});
+
+test('renders login form', () => {
+  const wrapper = shallow(<Login />); 
+  const appComponent = wrapper.find("[data-test='component-login-form']");
+  expect(appComponent.length).toBe(1)
+});
+
